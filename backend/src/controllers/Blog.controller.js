@@ -71,6 +71,7 @@ const Update = async (req, res, next) => {
             category,
             image,
         } = req.body
+        
         await blog.findByIdAndUpdate(
             id,{
                 $set: {
