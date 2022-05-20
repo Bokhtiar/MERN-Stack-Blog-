@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useState } from "react"
 import { Container,ListGroup } from "react-bootstrap"
+import { Link } from "react-router-dom"
 import { getCategory } from "../../Service/Category"
 
 const Categories = () => {
@@ -19,7 +20,7 @@ const Categories = () => {
             <ListGroup>
                 {
                    category.map((cat,index)=> 
-                        <ListGroup.Item>{cat.name}</ListGroup.Item>
+                        <ListGroup.Item> <Link to={`/category/blog/${cat.name}`} >{cat.name}</Link> </ListGroup.Item>
                    )
                 }
                 

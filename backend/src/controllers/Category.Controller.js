@@ -98,17 +98,20 @@ const Destroy = async (req, res, next) => {
             message: "Deleted Successfully...!"
         })
     } catch (error) {
-        if(error){
+        if(error){ 
             console.log('errors', error)
             next(error)
         }
     }
 }
 
+
+
 module.exports = {
     Index,
     Store,
     Show,
     Update,
-    Destroy
+    Destroy,
+    
 }

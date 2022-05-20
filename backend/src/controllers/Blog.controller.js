@@ -108,10 +108,29 @@ const Destroy = async (req, res, next) => {
         }
     }
 }
+
+const CategoryBlog = async (req, res, next) => {
+    try {
+        const { name } = req.params
+        const results = await blog.where('category', name).find()
+        res.status(200).json({
+            status:true,
+            data: results,
+            message: 'category blog list'
+        })
+    } catch (error) {
+        if(error){
+            console.log('error', error)
+            next(error)
+        }
+    }
+    
+}
 module.exports  = {
     Index,
     Store,
     Show,
     Update,
-    Destroy
+    Destroy,
+    CategoryBlog
 }

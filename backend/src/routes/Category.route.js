@@ -8,4 +8,5 @@ CategoryRoute.get("/:id", CategoryController.Show)
 CategoryRoute.put("/:id", CategoryController.Update)
 CategoryRoute.delete("/:id", CategoryController.Destroy)
 
+
 module.exports = CategoryRoute

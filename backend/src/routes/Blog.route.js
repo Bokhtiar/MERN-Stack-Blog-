@@ -6,5 +6,6 @@ BlogRoute.post("/", BlogController.Store)
 BlogRoute.get("/:id", BlogController.Show)
 BlogRoute.put("/:id", BlogController.Update)
 BlogRoute.delete("/:id", BlogController.Destroy)
+BlogRoute.get("/blog/:name", BlogController.CategoryBlog)
 
 module.exports = BlogRoute

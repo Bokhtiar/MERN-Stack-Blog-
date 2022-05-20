@@ -20,3 +20,13 @@ export const showBlog = async (id) =>{
 
     return blog
 }
+
+export const getCategoryBlog = async (name) =>{
+    let categoryBlog = [];
+    await axios.get(`/category/blogs/${name}`)
+    .then(response => {
+        categoryBlog = response.data.data
+    })
+
+    return categoryBlog
+}
