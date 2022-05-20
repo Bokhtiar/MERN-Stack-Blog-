@@ -7,6 +7,9 @@ import {
 import Header from './Components/Layouts/Header';
 import Footer from './Components/Layouts/Footer';
 import Home from "./Components/Index";
+import axios from "axios";
+
+axios.defaults.baseURL = 'http://localhost:4000/api/v1';
 
 function App() {
   return (
