@@ -19,8 +19,8 @@ export default function Header() {
                     <Nav.Link href={`/blogs`}>Blog</Nav.Link>
 
                     <NavDropdown title="Profile" id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="#action3">Login</NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">Logout</NavDropdown.Item>
+                        <NavDropdown.Item href={'/login'}>Login</NavDropdown.Item>
+                        <NavDropdown.Item href={'/register'}>Register</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
                 <Form className="d-flex">

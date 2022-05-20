@@ -11,6 +11,8 @@ import axios from "axios";
 import Blog from "./Components/Modules/blog/Blog";
 import Blogs from "./Components/Modules/blog/Blogs";
 import CategoryBlog from "./Components/Modules/blog/CategoryBlog"
+import Login from "./Components/Auth/Login"
+import Register from "./Components/Auth/Register"
 
 axios.defaults.baseURL = 'http://localhost:4000/api/v1';
 
@@ -23,7 +25,9 @@ function App() {
               <Route path="/" element={<Home />}></Route>
               <Route path="/blog/:id" element={ <Blog /> }></Route>
               <Route path="/category/blog/:name" element={ <CategoryBlog /> }></Route>
-               <Route path="/blogs" element={ <Blogs /> }></Route>
+              <Route path="/blogs" element={ <Blogs /> }></Route>
+              <Route path="/login" element={ <Login /> }></Route>
+              <Route path="/register" element={ <Register /> }></Route>
              {/* // // <Route path="/about" element={ <About  /> }></Route>
               // <Route path="/resume" element={ <Resume /> }></Route>
               // <Route path="/project" element={ <Project  /> }></Route>  */}

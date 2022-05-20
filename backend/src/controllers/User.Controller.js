@@ -14,7 +14,7 @@ const Index = async(req, res, next) => {
         if(error){
             console.log('error', error)
             next(error)
-        }   
+        }
     }
 }
 
