@@ -10,3 +10,13 @@ export const getBlog = async() =>{
 
     return blogs
 }
+
+export const showBlog = async (id) =>{
+    let blog = [];
+    await axios.get(`/blog/${id}`)
+    .then(response => {
+        blog = response.data.data
+    })
+
+    return blog
+}

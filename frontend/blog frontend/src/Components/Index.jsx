@@ -1,14 +1,17 @@
 import { useState } from "react"
 import { useEffect } from "react"
-import { Card, Button, Container, Col, Row } from "react-bootstrap"
+import { Card, Container, Col, Row } from "react-bootstrap"
+import { Link } from "react-router-dom"
 import { getBlog } from "./Service/Blog"
 
 const Home = () =>{
     const [blogs, setblog] = useState([''])
+
     const blogList = async ()=>{
         let serviceBlogs = await getBlog()
         setblog(serviceBlogs)
-    }//list of blog
+    }//list of service blog
+
     useEffect (()=>{
         blogList()
     },[])
@@ -23,7 +26,7 @@ const Home = () =>{
                             <Card.Img style={{ height:'150px' }} variant="top" src={ blog.image } />
                             <Card.Body>
                                 <Card.Title>{blog.title}</Card.Title>
-                                <Button variant="primary">Go somewhere</Button>
+                                <Link to={`/blog/${blog._id}`} variant="primary">view</Link>
                             </Card.Body>
                         </Card>
                     </Col>
