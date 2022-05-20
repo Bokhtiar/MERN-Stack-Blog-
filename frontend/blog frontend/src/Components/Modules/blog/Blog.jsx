@@ -3,6 +3,7 @@ import {Container, Image, Row, Col} from 'react-bootstrap'
 import { showBlog } from "../../Service/Blog";
 import { useState } from "react";
 import { useEffect } from "react";
+import Categories from "../Category/Categories";
 
 const Blog = () => {
     const {id} = useParams();
@@ -20,7 +21,7 @@ const Blog = () => {
         <Container>
            <Row>
                <Col md={8} lg={8} sm={12}>
-                    <h1>Blog Details { blog.title}</h1> 
+                    <h1>Blog Details</h1> 
                     <Image src={blog.image} ></Image>
 
                     <h1>{blog.title}</h1>
@@ -30,7 +31,7 @@ const Blog = () => {
                </Col>
 
                <Col md={4} lg={4} sm={12}>
-                
+                    <Categories></Categories>
                </Col>
            </Row>
         </Container>
