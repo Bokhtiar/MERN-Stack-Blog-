@@ -1,7 +1,7 @@
 import {
   BrowserRouter,
   Routes,
-  Route
+  Route,
 } from "react-router-dom";
 
 import Header from './Components/Layouts/Header';
@@ -13,6 +13,7 @@ import Blogs from "./Components/Modules/blog/Blogs";
 import CategoryBlog from "./Components/Modules/blog/CategoryBlog"
 import Login from "./Components/Auth/Login"
 import Register from "./Components/Auth/Register"
+import UserDashboard from "./Components/User/Index"
 
 axios.defaults.baseURL = 'http://localhost:4000/api/v1';
 
@@ -28,6 +29,7 @@ function App() {
               <Route path="/blogs" element={ <Blogs /> }></Route>
               <Route path="/login" element={ <Login /> }></Route>
               <Route path="/register" element={ <Register /> }></Route>
+              <Route path="/user/dashboard" element={ <UserDashboard /> }></Route>
              {/* // // <Route path="/about" element={ <About  /> }></Route>
               // <Route path="/resume" element={ <Resume /> }></Route>
               // <Route path="/project" element={ <Project  /> }></Route>  */}

@@ -1,8 +1,9 @@
 import React from 'react'
 import { Navbar, Container, Nav,NavDropdown,Form,FormControl,Button} from 'react-bootstrap'
 
-
 export default function Header() {
+let email = localStorage.getItem('email')
+
   return (
     <section>
         <Navbar bg="light" expand="lg">

@@ -1,9 +1,10 @@
 import axios from 'axios'
 import { useState } from 'react'
 import {Form,Container,Button} from 'react-bootstrap'
-
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const navigate = useNavigate();
     const [user, setUser] = useState({
         'email' : '',
         'password' : '',
@@ -21,13 +22,19 @@ const Login = () => {
           })
           .then(function (response) {
             console.log(response.data.data.role)
+            
             if(response.data.data.role === 'user'){
-
-            }else{
-                
+                localStorage.setItem('email', response.data.data.email);
+                localStorage.setItem('password', response.data.data.password);
+                localStorage.setItem('role', response.data.data.role);
+                navigate("/user/dashboard")
+            }else if (response.data.data.role === 'admin'){
+                localStorage.setItem('email', response.data.data.email);
+                localStorage.setItem('password', response.data.data.password);
+                localStorage.setItem('role', response.data.data.role);
+                navigate("/blogs")
             }
-            localStorage.setItem('email', response.data.user.email);
-            localStorage.setItem('password', response.data.user.password);
+            
           })
           .catch(function (error) {
             console.log(error);
