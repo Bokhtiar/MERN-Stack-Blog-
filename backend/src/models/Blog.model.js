@@ -16,6 +16,11 @@ const newBlog = new Schema({
         trim: true,
         required: true,
     },
+    category:{
+        type: String,
+        trim: true,
+        required: true,
+    },
     statusKey: {
         type:String,
         trim:true,
