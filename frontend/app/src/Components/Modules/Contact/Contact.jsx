@@ -15,7 +15,6 @@ const Contact = () => {
         e.persist();
         setContact({...contact,[e.target.name]: e.target.value})
     }
-
     const ContactSubmit = (e) => {
         e.preventDefault();
         axios.post('/contact/store', {
@@ -24,6 +23,7 @@ const Contact = () => {
             'message' : contact.message
           })
           .then(function (response) {
+            console.log(response)
             navigate("/")  
           })
           .catch(function (error) {
@@ -36,17 +36,17 @@ const Contact = () => {
                 <Form onSubmit={ContactSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control onChange={ContactHandle} value={contact.email} type="email" placeholder="Enter email" />
+                        <Form.Control onChange={ContactHandle} value={contact.email} name='email' type="email" placeholder="Enter email" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Label>Name</Form.Label>
-                        <Form.Control onChange={ContactHandle} value={contact.name} type="name" placeholder="name" />
+                        <Form.Control onChange={ContactHandle} value={contact.name} name='name' type="name" placeholder="name" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>Example textarea</Form.Label>
-                        <Form.Control onChange={ContactHandle} value={contact.message} as="textarea" rows={3} />
+                        <Form.Control onChange={ContactHandle} value={contact.message} name='message' as="textarea" rows={3} />
                     </Form.Group>
 
                     <Button variant="primary" type="submit">
