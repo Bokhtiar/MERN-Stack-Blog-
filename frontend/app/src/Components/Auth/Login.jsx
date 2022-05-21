@@ -27,11 +27,13 @@ const Login = () => {
                 localStorage.setItem('email', response.data.data.email);
                 localStorage.setItem('password', response.data.data.password);
                 localStorage.setItem('role', response.data.data.role);
+                localStorage.setItem('id', response.data.data._id);
                 navigate("/user/dashboard")
             }else if (response.data.data.role === 'admin'){
                 localStorage.setItem('email', response.data.data.email);
                 localStorage.setItem('password', response.data.data.password);
                 localStorage.setItem('role', response.data.data.role);
+                localStorage.setItem('id', response.data.data._id);
                 navigate("/blogs")
             }
             

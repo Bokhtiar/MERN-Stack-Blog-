@@ -2,7 +2,7 @@ import React from 'react'
 import { Navbar, Container, Nav,NavDropdown,Form,FormControl,Button} from 'react-bootstrap'
 
 export default function Header() {
-let email = localStorage.getItem('email')
+
 
   return (
     <section>
@@ -18,6 +18,7 @@ let email = localStorage.getItem('email')
                 >
                     <Nav.Link href={'/'}>Home</Nav.Link>
                     <Nav.Link href={`/blogs`}>Blog</Nav.Link>
+                    <Nav.Link href={`/contact`}>Contact</Nav.Link>
 
                     <NavDropdown title="Profile" id="navbarScrollingDropdown">
                         <NavDropdown.Item href={'/login'}>Login</NavDropdown.Item>
