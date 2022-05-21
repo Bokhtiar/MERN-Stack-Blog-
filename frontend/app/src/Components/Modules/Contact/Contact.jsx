@@ -17,7 +17,7 @@ const Contact = () => {
     }
     const ContactSubmit = (e) => {
         e.preventDefault();
-        axios.post('/contact/store', {
+        axios.post('/contact', {
             'email' : contact.email,
             'name' : contact.name,
             'message' : contact.message
