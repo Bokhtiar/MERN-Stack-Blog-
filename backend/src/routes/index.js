@@ -4,12 +4,14 @@ const BlogRouter = require('./Blog.route')
 const UserRoute = require('./user.route')
 const AuthRoute = require('./Auth.route')
 const ContactRoute = require('./Contact.route')
+const NewsRoute = require('./news.route')
 
 appRouter.use('/category', CategoryRoute)
 appRouter.use('/blog', BlogRouter)
 appRouter.use('/user', UserRoute)
 appRouter.use('/login', AuthRoute)
 appRouter.use('/contact', ContactRoute)
+appRouter.use('/news', NewsRoute)
 
 
 module.exports = appRouter
