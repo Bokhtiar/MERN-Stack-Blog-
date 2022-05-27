@@ -1,4 +1,5 @@
 const user = require('../models/user.model')
+const jwt = require("jsonwebtoken")
 
 //list of user
 const Index = async(req, res, next) => {
@@ -50,7 +51,55 @@ const Store = async (req, res, next) => {
 }
 
 
+const Login = async ( req, res, next ) => {
+
+    try {
+        const { email, password } = req.body
+
+        /* Account find using phone */
+        const account = await user.findOne({ email })
+        if (!account) {
+            return res.status(404).json({
+                status: false,
+                message: "Invalid email or password."
+            })
+        }
+
+        /* Compare with password */
+        // const result = await bcrypt.compare(password, account.password)
+        // if (!result) {
+        //     return res.status(404).json({
+        //         status: false,
+        //         message: "Invalid email or password."
+        //     })
+        // }
+
+        /* Generate JWT token */
+        const token = await jwt.sign(
+            {
+                id: account._id,
+                name: account.name,
+                role: account.role,
+                permissions: account.permissions,
+            }, process.env.JWT_SECRET, { expiresIn: '1d' }
+        )
+
+        return res.status(200).json({
+            status: true,
+            token
+        })
+    } catch (error) {
+        if (error) {
+            console.log(error)
+            next()
+        }
+    }
+}
+
+
+
 module.exports = {
     Index,
-    Store
+    Store,
+    Login
 }
