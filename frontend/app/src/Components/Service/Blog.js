@@ -1,9 +1,21 @@
 import axios from "axios";
 
+// const api = 'your api'; 
+// const token = JSON.parse(sessionStorage.getItem('data'));
+// const token = user.data.id; /*take only token and save in token variable*/
+// axios.get(api , { headers: {"Authorization" : `Bearer ${token}`} })
+// .then(res => {
+// console.log(res.data);
+// .catch((error) => {
+//   console.log(error)
+// });
+
+const token = localStorage.getItem('token');
+
 export const getBlog = async() =>{
     let blogs = [];
 
-    await axios.get('/blog')
+    await axios.get('/blog', { headers: {"Authorization" : `Bearer ${token}`} })
     .then(response => {
         blogs = response.data.data
     })

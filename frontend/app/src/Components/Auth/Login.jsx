@@ -14,29 +14,16 @@ const Login = () => {
         setUser({...user,[e.target.name]: e.target.value})
     }
 
-    const Login = (e,replace) => {
+    const Login = (e) => {
         e.preventDefault();
-        axios.post('/login', {
+        axios.post('/user/login', {
             'email' : user.email,
             'password' : user.password,
           })
           .then(function (response) {
-            console.log(response.data.data.role)
-            
-            if(response.data.data.role === 'user'){
-                localStorage.setItem('email', response.data.data.email);
-                localStorage.setItem('password', response.data.data.password);
-                localStorage.setItem('role', response.data.data.role);
-                localStorage.setItem('id', response.data.data._id);
-                navigate("/user/dashboard")
-            }else if (response.data.data.role === 'admin'){
-                localStorage.setItem('email', response.data.data.email);
-                localStorage.setItem('password', response.data.data.password);
-                localStorage.setItem('role', response.data.data.role);
-                localStorage.setItem('id', response.data.data._id);
-                navigate("/blogs")
-            }
-            
+                console.log('res', response)
+                localStorage.setItem('token', response.data.token);
+                navigate("/user/dashboard")  
           })
           .catch(function (error) {
             console.log(error);
