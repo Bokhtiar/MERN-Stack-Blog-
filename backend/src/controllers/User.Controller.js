@@ -96,10 +96,32 @@ const Login = async ( req, res, next ) => {
     }
 }
 
+const logdinUser = async (req, res, next) => {
+    
+
+    try {
+         // decode token
+        const splitToken = await req.headers.authorization.split(' ')[1]
+        const decode = await jwt.verify(splitToken, process.env.JWT_SECRET)
+        const user_id = decode.id
+        const result = await user.findById(user_id)
+        console.log(result)
+        return res.status(200).json({
+            status : 200,
+            message: "test",
+            data : result
+        })
+    } catch (error) {
+        console.log('error', error)
+        next(error)
+    }
+}
+
 
 
 module.exports = {
     Index,
     Store,
-    Login
+    Login,
+    logdinUser
 }

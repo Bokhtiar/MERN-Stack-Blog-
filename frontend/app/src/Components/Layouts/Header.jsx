@@ -2,7 +2,7 @@ import React from 'react'
 import { Navbar, Container, Nav,NavDropdown,Form,FormControl,Button} from 'react-bootstrap'
 
 export default function Header() {
-
+    const token = localStorage.getItem('token');
 
   return (
     <section>
@@ -20,11 +20,16 @@ export default function Header() {
                     <Nav.Link href={`/blogs`}>Blog</Nav.Link>
                     <Nav.Link href={`/news`}>News</Nav.Link>
                     <Nav.Link href={`/contact`}>Contact</Nav.Link>
-
+                    {token ?
                     <NavDropdown title="Profile" id="navbarScrollingDropdown">
+                        <NavDropdown.Item href={'/login'}>dashboard</NavDropdown.Item>
+                        <NavDropdown.Item href={'/register'}>Logout</NavDropdown.Item>
+                    </NavDropdown>
+                    :<NavDropdown title="Profile" id="navbarScrollingDropdown">
                         <NavDropdown.Item href={'/login'}>Login</NavDropdown.Item>
                         <NavDropdown.Item href={'/register'}>Register</NavDropdown.Item>
-                    </NavDropdown>
+                    </NavDropdown>}
+                    
                 </Nav>
                 <Form className="d-flex">
                     <FormControl
