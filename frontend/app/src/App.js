@@ -16,6 +16,8 @@ import Register from "./Components/Auth/Register"
 import UserDashboard from "./Components/User/Index"
 import Contact from "./Components/Modules/Contact/Contact";
 import News from "./Components/Modules/news/News";
+import UserProfile from "./Components/User/Profile";
+
 
 axios.defaults.baseURL = 'http://localhost:4000/api/v1';
 
@@ -34,6 +36,8 @@ function App() {
               <Route path="/contact" element={ < Contact /> }></Route>
               <Route path="/news" element={ < News /> }></Route>
               <Route path="/user/dashboard" element={ <UserDashboard /> }></Route>
+              <Route path="/user/profile" element={ <UserProfile /> }></Route>
+              
           
              {/* // // <Route path="/about" element={ <About  /> }></Route>
               // <Route path="/resume" element={ <Resume /> }></Route>

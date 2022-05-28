@@ -22,6 +22,7 @@ export default function Header() {
                     <Nav.Link href={`/contact`}>Contact</Nav.Link>
                     {token ?
                     <NavDropdown title="Profile" id="navbarScrollingDropdown">
+                        <NavDropdown.Item href={'/user/profile'}>Profile</NavDropdown.Item>
                         <NavDropdown.Item href={'/login'}>dashboard</NavDropdown.Item>
                         <NavDropdown.Item href={'/register'}>Logout</NavDropdown.Item>
                     </NavDropdown>
