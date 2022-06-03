@@ -17,14 +17,35 @@ import UserDashboard from "./Components/User/Index"
 import Contact from "./Components/Modules/Contact/Contact";
 import News from "./Components/Modules/news/News";
 import UserProfile from "./Components/User/Profile";
+import Logout from "./Components/User/Logout";
 
+import Navbar from './Components/Layouts/admin/Navbar';
 
 axios.defaults.baseURL = 'http://localhost:4000/api/v1';
 
 function App() {
+ const token = localStorage.getItem('token');
+
   return (
     <div>
-       <BrowserRouter>    
+      <div>
+      {(() => {
+        if (token) {
+          return (
+            <div>
+               <BrowserRouter>    
+            <Navbar></Navbar>
+            <Routes>
+            <Route path="/" element={<Home />}></Route>
+            </Routes>
+            </BrowserRouter>
+            </div>
+          )
+        } else if (!token) {
+          return (
+            <div>
+              
+          <BrowserRouter>    
           <Header/>
           <Routes>
               <Route path="/" element={<Home />}></Route>
@@ -37,14 +58,22 @@ function App() {
               <Route path="/news" element={ < News /> }></Route>
               <Route path="/user/dashboard" element={ <UserDashboard /> }></Route>
               <Route path="/user/profile" element={ <UserProfile /> }></Route>
-              
-          
-             {/* // // <Route path="/about" element={ <About  /> }></Route>
-              // <Route path="/resume" element={ <Resume /> }></Route>
-              // <Route path="/project" element={ <Project  /> }></Route>  */}
-            </Routes>
+              <Route path="/user/logout" element={ <Logout /> }></Route> 
+          </Routes>
           <Footer/>
-        </BrowserRouter>    
+        </BrowserRouter>   
+            </div>
+          )
+        } else {
+          return (
+            <div>login first</div>
+          )
+        }
+      })()}
+    </div>
+
+        
+           
     </div>
   );
 }

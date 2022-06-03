@@ -24,7 +24,7 @@ export default function Header() {
                     <NavDropdown title="Profile" id="navbarScrollingDropdown">
                         <NavDropdown.Item href={'/user/profile'}>Profile</NavDropdown.Item>
                         <NavDropdown.Item href={'/login'}>dashboard</NavDropdown.Item>
-                        <NavDropdown.Item href={'/register'}>Logout</NavDropdown.Item>
+                        <NavDropdown.Item href={'/user/logout'}>Logout</NavDropdown.Item>
                     </NavDropdown>
                     :<NavDropdown title="Profile" id="navbarScrollingDropdown">
                         <NavDropdown.Item href={'/login'}>Login</NavDropdown.Item>
